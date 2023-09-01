@@ -46,12 +46,14 @@
 .contact-container,
 .chat-container {
   background-color: var(--primary-white);
+  display: flex;
+  flex-direction: column;
 }
+
+/* contact container */
 
 .contact-container {
   border-right: 2px solid var(--black);
-  display: flex;
-  flex-direction: column;
 }
 
 .contact-container .account {
@@ -69,4 +71,24 @@
 .contact-container .contacts {
   background-color: var(--blue);
   height: 100%;
+}
+
+/* chat container */
+
+.chat-container {
+}
+
+.chat-container .chat {
+  height: 100%;
+  background-color: var(--aubergine);
+}
+
+.chat-container .active-contact {
+  height: 4rem;
+  background-color: var(--light-blue);
+}
+
+.chat-container .chat-input {
+  height: 5rem;
+  background-color: var(--light-purple);
 }
