@@ -31,3 +31,11 @@
   margin: 0;
   padding: 0;
 }
+
+/* * main */
+
+.app-container {
+  /* background-color: var(--aubergine); */
+  height: calc(100vh - 4rem);
+  margin: 2rem 6rem;
+}
