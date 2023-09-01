@@ -22,6 +22,9 @@
   --dark-blue: #1a1a8a;
   --yellow: #eeba72;
   --light-purple: #9792e4;
+
+  /* web-site specific */
+  --primary-white: #eaeaea;
 }
 
 /* Reset */
@@ -38,4 +41,32 @@
   /* background-color: var(--aubergine); */
   height: calc(100vh - 4rem);
   margin: 2rem 6rem;
+}
+
+.contact-container,
+.chat-container {
+  background-color: var(--primary-white);
+}
+
+.contact-container {
+  border-right: 2px solid var(--black);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-container .account {
+}
+
+.contact-container .notification,
+.account,
+.search {
+  height: 4rem;
+}
+
+.contact-container .search {
+}
+
+.contact-container .contacts {
+  background-color: var(--blue);
+  height: 100%;
 }
