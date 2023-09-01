@@ -85,6 +85,7 @@ ul {
   background-color: var(--white);
   height: 4rem;
   padding-right: 1rem;
+  display: flex;
 }
 
 /** chat container */
