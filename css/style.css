@@ -35,7 +35,13 @@
   padding: 0;
 }
 
-/* * main */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*** main */
 
 .app-container {
   /* background-color: var(--aubergine); */
@@ -50,7 +56,7 @@
   flex-direction: column;
 }
 
-/* contact container */
+/** contact container */
 
 .contact-container {
   border-right: 2px solid var(--black);
@@ -68,12 +74,20 @@
 .contact-container .search {
 }
 
+/* contacts */
+
 .contact-container .contacts {
-  background-color: var(--blue);
   height: 100%;
+  display: flex;
 }
 
-/* chat container */
+.contacts-item {
+  background-color: var(--white);
+  height: 4rem;
+  padding-right: 1rem;
+}
+
+/** chat container */
 
 .chat-container {
 }

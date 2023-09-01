@@ -49,7 +49,24 @@
             <!-- search -->
             <div class="search">Lorem ipsum dolor sit.</div>
             <!-- contacts -->
-            <div class="contacts"></div>
+            <div class="contacts overflow-y-auto">
+              <ul>
+                <li v-for="(text, index) in contacts" class="contacts-item">
+                  <img
+                    :src="contacts[index].avatar"
+                    :alt="contacts[index].name"
+                    class="contacts-image col-3"
+                  />
+                  <div>
+                    <h4>{{ contacts[index].name }}</h4>
+                    <p>Ultimo messaggio inviato</p>
+                  </div>
+                  <div class="col-1">
+                    <p>12:00</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="chat-container col">
             <div class="active-contact"></div>
