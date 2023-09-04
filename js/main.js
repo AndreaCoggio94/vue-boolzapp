@@ -185,6 +185,15 @@ createApp({
       };
       this.contacts[this.activeContact].messages.push(newMessage);
       this.inputMessage = "";
+      const userResponse = setTimeout(this.sendResponse, 1000);
+    },
+    sendResponse() {
+      const newMessage = {
+        date: "10/01/2020 15:30:55",
+        message: "Ok",
+        status: "received",
+      };
+      this.contacts[this.activeContact].messages.push(newMessage);
     },
   },
 }).mount("#app");
