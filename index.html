@@ -160,11 +160,19 @@
 
         <footer class="user-actions">
           <div class="icons-container">
-            <i class="fa-solid fa-face-smile"></i>
+            <i class="fa-regular fa-face-smile"></i>
           </div>
 
           <div class="message-bar">
-            <input class="message-input" type="text" name="" id="" />
+            <input
+              class="message-input"
+              type="text"
+              v-model.trim="inputMessage"
+              @keyup.enter="sendMessage()"
+              name=""
+              id=""
+              :placeholder="placeHolderMessage"
+            />
           </div>
 
           <div class="icons-container">

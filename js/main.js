@@ -169,11 +169,22 @@ createApp({
         },
       ],
       activeContact: 0,
+      placeHolderMessage: "Scrivi un messaggio",
+      inputMessage: "",
     };
   },
   methods: {
     active(index) {
       this.activeContact = index;
+    },
+    sendMessage() {
+      const newMessage = {
+        date: "10/01/2020 15:30:55",
+        message: this.inputMessage,
+        status: "sent",
+      };
+      this.contacts[this.activeContact].messages.push(newMessage);
+      this.inputMessage = "";
     },
   },
 }).mount("#app");
