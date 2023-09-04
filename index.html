@@ -123,11 +123,16 @@
         <header class="col-header">
           <div class="user">
             <div class="user-pic">
-              <img src="./img/avatar_1.jpg" alt="" />
+              <img
+                :src="contacts[activeContact].avatar"
+                :alt="contacts[activeContact].name"
+              />
             </div>
 
             <div class="main-text">
-              <h3 class="main-text-upper">Michele</h3>
+              <h3 class="main-text-upper">
+                {{ contacts[activeContact].name }}
+              </h3>
               <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
             </div>
           </div>
@@ -139,24 +144,14 @@
         </header>
 
         <section class="messages">
-          <div class="message sent">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-            magnam nihil cupiditate. Corrupti modi ex recusandae exercitationem
-            accusamus, quo odit est adipisci dignissimos quibusdam eaque beatae
-            quasi harum, ab accusantium.
-          </div>
-          <div class="message sent">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-            magnam nihil cupiditate. Corrupti modi ex recusandae exercitationem
-            accusamus, quo odit est adipisci dignissimos quibusdam eaque beatae
-            quasi harum, ab accusantium.
-          </div>
-          <div class="message received">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-            magnam nihil cupiditate. Corrupti modi ex recusandae exercitationem
-            accusamus, quo odit est adipisci dignissimos quibusdam eaque beatae
-            quasi harum, ab accusantium.
-          </div>
+          <template v-for="(item, index) in contacts[activeContact].messages">
+            <div
+              class="message"
+              :class="contacts[activeContact].messages[index].status"
+            >
+              {{ contacts[activeContact].messages[index].message }}
+            </div>
+          </template>
         </section>
 
         <footer class="user-actions">
