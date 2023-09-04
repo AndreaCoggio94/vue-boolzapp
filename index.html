@@ -83,7 +83,11 @@
         <!-- CONTACTS LIST -->
         <ul class="contacts-list">
           <template v-for="(item, index) in contacts">
-            <li v-if="index === activeContact" class="contact active">
+            <li
+              v-if="index === activeContact"
+              class="contact active"
+              @click="active(index)"
+            >
               <div class="contact-pic">
                 <img
                   :src="contacts[index].avatar"
@@ -98,7 +102,7 @@
 
               <div class="time">12:00</div>
             </li>
-            <li v-else="" class="contact">
+            <li v-else="" class="contact" @click="active(index)">
               <div class="contact-pic">
                 <img
                   :src="contacts[index].avatar"
