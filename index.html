@@ -76,13 +76,17 @@
             <div class="search-icon">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input class="search-input" type="text" />
+            <input
+              class="search-input"
+              type="text"
+              v-model.trim="contactSearch"
+            />
           </div>
         </div>
 
         <!-- CONTACTS LIST -->
         <ul class="contacts-list">
-          <template v-for="(item, index) in contacts">
+          <template v-for="(item, index) in filteredContacts">
             <li
               v-if="index === activeContact"
               class="contact active"
@@ -90,13 +94,15 @@
             >
               <div class="contact-pic">
                 <img
-                  :src="contacts[index].avatar"
-                  :alt="contacts[index].name"
+                  :src="filteredContacts[index].avatar"
+                  :alt="filteredContacts[index].name"
                 />
               </div>
 
               <div class="main-text">
-                <h3 class="main-text-upper">{{ contacts[index].name }}</h3>
+                <h3 class="main-text-upper">
+                  {{ filteredContacts[index].name }}
+                </h3>
                 <h4 class="main-text-lower">Ultimo messaggio</h4>
               </div>
 
@@ -105,13 +111,15 @@
             <li v-else="" class="contact" @click="active(index)">
               <div class="contact-pic">
                 <img
-                  :src="contacts[index].avatar"
-                  :alt="contacts[index].name"
+                  :src="filteredContacts[index].avatar"
+                  :alt="filteredContacts[index].name"
                 />
               </div>
 
               <div class="main-text">
-                <h3 class="main-text-upper">{{ contacts[index].name }}</h3>
+                <h3 class="main-text-upper">
+                  {{ filteredContacts[index].name }}
+                </h3>
                 <h4 class="main-text-lower">Ultimo messaggio</h4>
               </div>
 
@@ -128,14 +136,14 @@
           <div class="user">
             <div class="user-pic">
               <img
-                :src="contacts[activeContact].avatar"
-                :alt="contacts[activeContact].name"
+                :src="filteredContacts[activeContact].avatar"
+                :alt="filteredContacts[activeContact].name"
               />
             </div>
 
             <div class="main-text">
               <h3 class="main-text-upper">
-                {{ contacts[activeContact].name }}
+                {{ filteredContacts[activeContact].name }}
               </h3>
               <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
             </div>
@@ -148,12 +156,14 @@
         </header>
 
         <section class="messages">
-          <template v-for="(item, index) in contacts[activeContact].messages">
+          <template
+            v-for="(item, index) in filteredContacts[activeContact].messages"
+          >
             <div
               class="message"
-              :class="contacts[activeContact].messages[index].status"
+              :class="filteredContacts[activeContact].messages[index].status"
             >
-              {{ contacts[activeContact].messages[index].message }}
+              {{ filteredContacts[activeContact].messages[index].message }}
             </div>
           </template>
         </section>

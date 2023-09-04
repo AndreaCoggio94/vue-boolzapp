@@ -1,5 +1,3 @@
-console.log("Hello world");
-
 const { createApp } = Vue;
 
 createApp({
@@ -171,6 +169,7 @@ createApp({
       activeContact: 0,
       placeHolderMessage: "Scrivi un messaggio",
       inputMessage: "",
+      contactSearch: "",
     };
   },
   methods: {
@@ -183,7 +182,7 @@ createApp({
         message: this.inputMessage,
         status: "sent",
       };
-      this.contacts[this.activeContact].messages.push(newMessage);
+      this.filteredContacts[this.activeContact].messages.push(newMessage);
       this.inputMessage = "";
       const userResponse = setTimeout(this.sendResponse, 1000);
     },
@@ -193,7 +192,17 @@ createApp({
         message: "Ok",
         status: "received",
       };
-      this.contacts[this.activeContact].messages.push(newMessage);
+      this.filteredContacts[this.activeContact].messages.push(newMessage);
+    },
+  },
+  computed: {
+    filteredContacts() {
+      this.activeContact = 0;
+      return this.contacts.filter((contact) => {
+        return contact.name
+          .toLowerCase()
+          .includes(this.contactSearch.toLowerCase());
+      });
     },
   },
 }).mount("#app");
