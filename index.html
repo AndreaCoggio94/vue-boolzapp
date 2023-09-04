@@ -38,42 +38,156 @@
     <script type="text/javascript" src="./js/main.js" defer></script>
   </head>
   <body>
-    <div id="app">
-      <main>
-        <div class="app-container d-flex">
-          <div class="contact-container col-4">
-            <!-- account -->
-            <div class="account">Lorem ipsum dolor sit.</div>
-            <!-- notification -->
-            <div class="notification">Lorem ipsum dolor sit.</div>
-            <!-- search -->
-            <div class="search">Lorem ipsum dolor sit.</div>
-            <!-- contacts -->
-            <div class="contacts overflow-y-auto">
-              <ul>
-                <li v-for="(text, index) in contacts" class="contacts-item">
-                  <img
-                    :src="contacts[index].avatar"
-                    :alt="contacts[index].name"
-                    class="rounded-image col-1"
-                  />
-                  <div class="col">
-                    <h4>{{ contacts[index].name }}</h4>
-                    <p>Ultimo messaggio inviato</p>
-                  </div>
-                  <div class="col-1">
-                    <p>12:00</p>
-                  </div>
-                </li>
-              </ul>
+    <div class="wrapper" id="app">
+      <!-- COL CONTACTS -->
+      <div class="col-contacts">
+        <!-- COL CONTACTS HEADER -->
+        <header class="col-header">
+          <div class="user">
+            <div class="user-pic">
+              <img src="./img/avatar_io.jpg" alt="" />
+            </div>
+
+            <div class="main-text">
+              <h3 class="main-text-upper">Sofia</h3>
             </div>
           </div>
-          <div class="chat-container col">
-            <div class="active-contact"></div>
-            <div class="chat"></div>
-            <div class="chat-input"></div>
+          <div class="icons-container">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </header>
+
+        <!-- COL CONTACTS DISCLAIMER -->
+        <div class="disclaimer">
+          <div class="icon-container">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+          <div class="main-text">
+            <h3 class="main-text-upper">Ricevi notifiche di nuovi messaggi</h3>
+            <a class="main-text-lower" href="#">Attiva notifiche desktop</a>
           </div>
         </div>
+
+        <!-- CONTACTS SEARCH -->
+        <div class="contact-search">
+          <div class="search-container">
+            <div class="search-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input class="search-input" type="text" />
+          </div>
+        </div>
+
+        <!-- CONTACTS LIST -->
+        <ul class="contacts-list">
+          <li class="contact">
+            <div class="contact-pic">
+              <img src="./img/avatar_1.jpg" alt="" />
+            </div>
+
+            <div class="main-text">
+              <h3 class="main-text-upper">Michele</h3>
+              <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
+            </div>
+
+            <div class="time">12:00</div>
+          </li>
+          <li class="contact">
+            <div class="contact-pic">
+              <img src="./img/avatar_2.jpg" alt="" />
+            </div>
+
+            <div class="main-text">
+              <h3 class="main-text-upper">Michele</h3>
+              <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
+            </div>
+
+            <div class="time">12:00</div>
+          </li>
+          <li class="contact">
+            <div class="contact-pic">
+              <img src="./img/avatar_3.jpg" alt="" />
+            </div>
+
+            <div class="main-text">
+              <h3 class="main-text-upper">Michele</h3>
+              <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
+            </div>
+
+            <div class="time">12:00</div>
+          </li>
+          <li class="contact">
+            <div class="contact-pic">
+              <img src="./img/avatar_4.jpg" alt="" />
+            </div>
+
+            <div class="main-text">
+              <h3 class="main-text-upper">Michele</h3>
+              <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
+            </div>
+
+            <div class="time">12:00</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- COL CHAT -->
+      <main class="col-chat">
+        <!-- COL CHAT HEADER -->
+        <header class="col-header">
+          <div class="user">
+            <div class="user-pic">
+              <img src="./img/avatar_1.jpg" alt="" />
+            </div>
+
+            <div class="main-text">
+              <h3 class="main-text-upper">Michele</h3>
+              <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
+            </div>
+          </div>
+          <div class="icons-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </header>
+
+        <section class="messages">
+          <div class="message sent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
+            magnam nihil cupiditate. Corrupti modi ex recusandae exercitationem
+            accusamus, quo odit est adipisci dignissimos quibusdam eaque beatae
+            quasi harum, ab accusantium.
+          </div>
+          <div class="message sent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
+            magnam nihil cupiditate. Corrupti modi ex recusandae exercitationem
+            accusamus, quo odit est adipisci dignissimos quibusdam eaque beatae
+            quasi harum, ab accusantium.
+          </div>
+          <div class="message received">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
+            magnam nihil cupiditate. Corrupti modi ex recusandae exercitationem
+            accusamus, quo odit est adipisci dignissimos quibusdam eaque beatae
+            quasi harum, ab accusantium.
+          </div>
+        </section>
+
+        <footer class="user-actions">
+          <div class="icons-container">
+            <i class="fa-solid fa-face-smile"></i>
+          </div>
+
+          <div class="message-bar">
+            <input class="message-input" type="text" name="" id="" />
+          </div>
+
+          <div class="icons-container">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
+        </footer>
       </main>
     </div>
   </body>

@@ -168,7 +168,7 @@ createApp({
           ],
         },
       ],
-      message: "Hello there!",
+      activeContact: 0,
     };
   },
 }).mount("#app");
