@@ -101,7 +101,7 @@
                 <h4 class="main-text-lower">{{ lastMessage(index) }}</h4>
               </div>
 
-              <div class="time">12:00</div>
+              <div class="time">{{ getTime() }}</div>
             </li>
             <li v-else="" class="contact" @click="active(index)">
               <div class="contact-pic">
@@ -113,7 +113,7 @@
                 <h4 class="main-text-lower">{{ lastMessage(index) }}</h4>
               </div>
 
-              <div class="time">12:00</div>
+              <div class="time">{{ getTime() }}</div>
             </li>
           </template>
         </ul>
@@ -135,7 +135,9 @@
               <h3 class="main-text-upper">
                 {{ filteredContacts[activeContact].name }}
               </h3>
-              <h4 class="main-text-lower">Ultimo accesso oggi alle 12:00</h4>
+              <h4 class="main-text-lower">
+                Ultimo accesso oggi alle {{ getTime() }}
+              </h4>
             </div>
           </div>
           <div class="icons-container">

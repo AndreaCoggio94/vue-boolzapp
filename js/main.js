@@ -182,7 +182,7 @@ createApp({
     },
     sendMessage() {
       const newMessage = {
-        date: "10/01/2020 15:30:55",
+        date: this.getNow(),
         message: this.inputMessage,
         status: "sent",
       };
@@ -192,7 +192,7 @@ createApp({
     },
     sendResponse() {
       const newMessage = {
-        date: "10/01/2020 15:30:55",
+        date: this.getNow(),
         message: "Ok",
         status: "received",
       };
@@ -215,6 +215,27 @@ createApp({
           ].message.substr(0, 20) + " ..."
         );
       }
+    },
+    getTime() {
+      const today = new Date();
+      const time = today.getHours() + ":" + today.getMinutes();
+      const dateTime = time;
+      return dateTime;
+    },
+    getNow() {
+      const today = new Date();
+      const date =
+        today.getDate() +
+        "/" +
+        (today.getMonth() + 1) +
+        "/" +
+        today.getFullYear();
+
+      const time =
+        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      const dateTime = date + " " + time;
+
+      return dateTime;
     },
   },
   computed: {
