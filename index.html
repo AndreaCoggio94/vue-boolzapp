@@ -98,9 +98,7 @@
 
               <div class="main-text">
                 <h3 class="main-text-upper">{{ contact.name }}</h3>
-                <h4 class="main-text-lower">
-                  {{ contact.messages[contact.messages.length - 1].message }}
-                </h4>
+                <h4 class="main-text-lower">{{ lastMessage(index) }}</h4>
               </div>
 
               <div class="time">12:00</div>
@@ -112,9 +110,7 @@
 
               <div class="main-text">
                 <h3 class="main-text-upper">{{ contact.name }}</h3>
-                <h4 class="main-text-lower">
-                  {{ contact.messages[contact.messages.length - 1].message }}
-                </h4>
+                <h4 class="main-text-lower">{{ lastMessage(index) }}</h4>
               </div>
 
               <div class="time">12:00</div>
@@ -156,7 +152,7 @@
             v-for="(text, index) in filteredContacts[activeContact].messages"
           >
             <div
-              class="message dropdown dropdown-toggle"
+              class="message dropdown-center dropdown-toggle"
               @click="openPopup(index)"
               :class="filteredContacts[activeContact].messages[index].status"
             >

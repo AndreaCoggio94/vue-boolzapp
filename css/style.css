@@ -321,6 +321,8 @@ input {
   border-radius: 0.5rem;
 }
 
+/* Dropdown menu */
+
 .show {
   position: absolute;
 

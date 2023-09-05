@@ -205,6 +205,15 @@ createApp({
       this.popup.index = index;
       this.popup.visible = !this.popup.visible;
     },
+    lastMessage(index) {
+      if (this.filteredContacts[index].messages.length == 0) {
+        return "Nessun messaggio";
+      } else {
+        return this.filteredContacts[index].messages[
+          this.filteredContacts[index].messages.length - 1
+        ].message;
+      }
+    },
   },
   computed: {
     filteredContacts() {
