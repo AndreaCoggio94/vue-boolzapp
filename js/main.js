@@ -209,9 +209,11 @@ createApp({
       if (this.filteredContacts[index].messages.length == 0) {
         return "Nessun messaggio";
       } else {
-        return this.filteredContacts[index].messages[
-          this.filteredContacts[index].messages.length - 1
-        ].message;
+        return (
+          this.filteredContacts[index].messages[
+            this.filteredContacts[index].messages.length - 1
+          ].message.substr(0, 20) + " ..."
+        );
       }
     },
   },
