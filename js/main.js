@@ -194,6 +194,9 @@ createApp({
       };
       this.filteredContacts[this.activeContact].messages.push(newMessage);
     },
+    removeMessage(index) {
+      this.filteredContacts[this.activeContact].messages.splice(index, 1);
+    },
   },
   computed: {
     filteredContacts() {

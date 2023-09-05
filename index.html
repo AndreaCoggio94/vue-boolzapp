@@ -86,23 +86,18 @@
 
         <!-- CONTACTS LIST -->
         <ul class="contacts-list">
-          <template v-for="(item, index) in filteredContacts">
+          <template v-for="(contact, index) in filteredContacts">
             <li
               v-if="index === activeContact"
               class="contact active"
               @click="active(index)"
             >
               <div class="contact-pic">
-                <img
-                  :src="filteredContacts[index].avatar"
-                  :alt="filteredContacts[index].name"
-                />
+                <img :src="contact.avatar" :alt="contact.name" />
               </div>
 
               <div class="main-text">
-                <h3 class="main-text-upper">
-                  {{ filteredContacts[index].name }}
-                </h3>
+                <h3 class="main-text-upper">{{ contact.name }}</h3>
                 <h4 class="main-text-lower">Ultimo messaggio</h4>
               </div>
 
@@ -110,16 +105,11 @@
             </li>
             <li v-else="" class="contact" @click="active(index)">
               <div class="contact-pic">
-                <img
-                  :src="filteredContacts[index].avatar"
-                  :alt="filteredContacts[index].name"
-                />
+                <img :src="contact.avatar" :alt="contact.name" />
               </div>
 
               <div class="main-text">
-                <h3 class="main-text-upper">
-                  {{ filteredContacts[index].name }}
-                </h3>
+                <h3 class="main-text-upper">{{ contact.name }}</h3>
                 <h4 class="main-text-lower">Ultimo messaggio</h4>
               </div>
 
@@ -156,17 +146,30 @@
         </header>
 
         <section class="messages">
+          <!-- chat messages -->
+
           <template
-            v-for="(item, index) in filteredContacts[activeContact].messages"
+            v-for="(text, index) in filteredContacts[activeContact].messages"
           >
             <div
-              class="message"
+              class="message dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="true"
               :class="filteredContacts[activeContact].messages[index].status"
             >
               {{ filteredContacts[activeContact].messages[index].message }}
             </div>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">Message info</li>
+              <li @click="removeMessage(index)" class="dropdown-item">
+                Rimuovi messaggio
+              </li>
+            </ul>
           </template>
         </section>
+
+        <!-- input message  -->
 
         <footer class="user-actions">
           <div class="icons-container">
