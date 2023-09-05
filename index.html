@@ -98,7 +98,9 @@
 
               <div class="main-text">
                 <h3 class="main-text-upper">{{ contact.name }}</h3>
-                <h4 class="main-text-lower">Ultimo messaggio</h4>
+                <h4 class="main-text-lower">
+                  {{ contact.messages[contact.messages.length - 1].message }}
+                </h4>
               </div>
 
               <div class="time">12:00</div>
@@ -110,7 +112,9 @@
 
               <div class="main-text">
                 <h3 class="main-text-upper">{{ contact.name }}</h3>
-                <h4 class="main-text-lower">Ultimo messaggio</h4>
+                <h4 class="main-text-lower">
+                  {{ contact.messages[contact.messages.length - 1].message }}
+                </h4>
               </div>
 
               <div class="time">12:00</div>
@@ -152,20 +156,21 @@
             v-for="(text, index) in filteredContacts[activeContact].messages"
           >
             <div
-              class="message dropdown-toggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="true"
+              class="message dropdown dropdown-toggle"
+              @click="openPopup(index)"
               :class="filteredContacts[activeContact].messages[index].status"
             >
               {{ filteredContacts[activeContact].messages[index].message }}
+              <ul
+                v-if="(index == popup.index && popup.visible)"
+                class="dropdown-menu show"
+              >
+                <li class="dropdown-item">Message info</li>
+                <li @click="removeMessage(index)" class="dropdown-item">
+                  Rimuovi messaggio
+                </li>
+              </ul>
             </div>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item">Message info</li>
-              <li @click="removeMessage(index)" class="dropdown-item">
-                Rimuovi messaggio
-              </li>
-            </ul>
           </template>
         </section>
 

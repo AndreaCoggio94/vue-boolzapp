@@ -320,3 +320,19 @@ input {
   border: none;
   border-radius: 0.5rem;
 }
+
+.show {
+  position: absolute;
+
+  margin: 0px;
+
+  display: block;
+}
+
+.messages > .message.sent > .show {
+  inset: auto 0px auto auto;
+}
+
+.messages > .message.received > .show {
+  inset: auto auto auto 0px;
+}

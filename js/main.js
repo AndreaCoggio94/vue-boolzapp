@@ -170,6 +170,10 @@ createApp({
       placeHolderMessage: "Scrivi un messaggio",
       inputMessage: "",
       contactSearch: "",
+      popup: {
+        visible: false,
+        index: -1,
+      },
     };
   },
   methods: {
@@ -196,6 +200,10 @@ createApp({
     },
     removeMessage(index) {
       this.filteredContacts[this.activeContact].messages.splice(index, 1);
+    },
+    openPopup(index) {
+      this.popup.index = index;
+      this.popup.visible = !this.popup.visible;
     },
   },
   computed: {
