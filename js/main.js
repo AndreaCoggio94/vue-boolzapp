@@ -225,7 +225,7 @@ createApp({
     getNow() {
       const today = new Date();
       const date =
-        today.getDate() +
+        this.checkDate +
         "/" +
         (today.getMonth() + 1) +
         "/" +
@@ -246,6 +246,12 @@ createApp({
           .toLowerCase()
           .includes(this.contactSearch.toLowerCase());
       });
+    },
+    checkDate() {
+      if (today.getDate() < 10) {
+        console.log(today.getDate());
+        return "0" + today.getDate();
+      }
     },
   },
 }).mount("#app");
